@@ -14,4 +14,10 @@ const userCases = {
   },
 };
 
-module.exports = userCases;
+const loginUserCases = {
+  successUser: { email: 'nizar123@gmail.com', password: '12341234123' },
+  invalidEmail: { email: 'invalidEmail', password: '123123123' },
+  invalidPassword: { email: 'nizar123@gmail.com', password: '123' },
+};
+
+module.exports = { userCases, loginUserCases };

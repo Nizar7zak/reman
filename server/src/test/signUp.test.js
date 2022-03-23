@@ -8,7 +8,7 @@ const {
   getUserByEmail,
 } = require('../database/queries/user');
 const { signUpSchema } = require('../utils');
-const userCases = require('./userCases');
+const { userCases } = require('./userCases');
 
 beforeEach(() => buildDataBase());
 
@@ -58,12 +58,10 @@ describe('SignUp Validation', () => {
 
 describe('check database based on SignUp process', () => {
   it('should return 0 when search for a new User email in current database', async () => {
-    await getAllUser(userCases.successUser);
     result = await getUserByEmail(userCases.successUser.email);
     expect(result.rowCount).toBe(0);
   });
   it('should return 1 when new user regiester with an email exist in current database', async () => {
-    await getAllUser(userCases.successUser);
     result = await getUserByEmail('nizar@gmail.com');
     expect(result.rowCount).toBe(1);
   });
