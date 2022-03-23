@@ -1,4 +1,4 @@
-const getUsers = require('./getAllUsers');
+const getUserByEmail = require('./getUserByEmail');
 const insertNewUser = require('./insetNewUser');
 
-module.exports = { getUsers, insertNewUser };
+module.exports = { getUserByEmail, insertNewUser };

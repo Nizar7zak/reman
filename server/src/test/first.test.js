@@ -7,7 +7,7 @@ beforeEach(() => buildDataBase());
 test('check users', () => connection
   .query('SELECT * FROM users')
   .then((data) => {
-    expect(data.rows.length).toBe(2);
+    expect(data.rows.length).toBe(1);
   }));
 
 afterAll(() => connection.end());

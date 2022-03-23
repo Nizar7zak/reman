@@ -1,6 +1,6 @@
 const { genSalt, hash } = require('bcrypt');
 
-const { getUsers, insertNewUser } = require('../database/queries');
+const { getUserByEmail, insertNewUser } = require('../database/queries');
 const { signUpSchema } = require('../utils');
 
 const signUp = async (req, res) => {
@@ -9,7 +9,7 @@ const signUp = async (req, res) => {
   const { error } = signUpSchema.validateAsync(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const { rowCount } = await getUsers(email);
+  const { rowCount } = await getUserByEmail(email);
   if (rowCount) return res.status(400).send({ message: 'User already registered.' });
 
   const salt = await genSalt(10);
