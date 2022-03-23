@@ -12,7 +12,7 @@ const login = async (req, res) => {
   if (!rows.length) { return res.status(400).send({ message: 'Invalid Email or Password' }); }
 
   const {
-    id, name, email, password, isadmin,
+    id, email, password, isadmin,
   } = rows[0];
 
   const vaildPassword = await compare(req.body.password, password);
@@ -20,12 +20,7 @@ const login = async (req, res) => {
 
   const token = sign({ id, email, isadmin }, process.env.SECRETTOKENKEY);
 
-  res.status(201).cookie('token', token).send({
-    message: 'You are Logged Successfully',
-    data: {
-      id, name, isadmin, email,
-    },
-  });
+  return res.status(201).cookie('token', token).send({ message: 'You are Logged Successfully' });
 };
 
 module.exports = login;
