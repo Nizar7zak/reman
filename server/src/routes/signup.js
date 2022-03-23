@@ -6,8 +6,8 @@ const { signUpSchema } = require('../utils');
 const signUp = async (req, res) => {
   const { email, password, name } = req.body;
 
-  const { error } = signUpSchema.validateAsync(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  const { error } = await signUpSchema.validateAsync(req.body);
+  if (error) return res.status(400).json(error.details[0].message);
 
   const { rowCount } = await getUserByEmail(email);
   if (rowCount) return res.status(400).send({ message: 'User already registered.' });
