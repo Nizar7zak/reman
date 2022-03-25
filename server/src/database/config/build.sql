@@ -41,7 +41,7 @@ VALUES
     (
         'Nizar1',
         'nizar@gmail.com',
-        '$2a$10$Bp9etHWYo1UAANX99Ju3LuEzTlH7d1mq8snUpUzV7UhfBlQwozIly',
+        '$2b$10$cKOhzK0GHtdZHcctMm409OjVpEMut8VwyZ0fzgA9kXe/2/Uc8Yy4W',
         true
     );
 
