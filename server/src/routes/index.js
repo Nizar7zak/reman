@@ -1,7 +1,8 @@
 const router = require('express').Router();
 
-const asyncMiddleWare = require('../middlewares/async');
-const serverError = require('../middlewares/serverError');
+const {
+  asyncMiddleWare, serverError,
+} = require('../middlewares');
 
 const login = require('./login');
 const signUp = require('./signup');
