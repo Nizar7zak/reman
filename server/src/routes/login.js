@@ -5,12 +5,7 @@ const { getUserByEmail } = require('../database/queries/user');
 const { loginSchema } = require('../utils');
 
 const login = async (req, res) => {
-  try {
-    await loginSchema.validateAsync(req.body);
-  } catch (error) {
-    return res.status(400).json({ message: error.details[0].message });
-  }
-
+  await loginSchema.validateAsync(req.body);
   const { rows } = await getUserByEmail(req.body.email);
   if (!rows.length) { return res.status(400).json({ message: 'Invalid Email or Password' }); }
 
