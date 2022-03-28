@@ -1,12 +1,13 @@
 const router = require('express').Router();
 
 const {
-  asyncMiddleWare, serverError,
+  asyncMiddleWare, serverError, auth,
 } = require('../middlewares');
 
 const login = require('./login');
 const signUp = require('./signup');
 
+router.get('/me', asyncMiddleWare(auth));
 router.post('/login', asyncMiddleWare(login));
 router.post('/signup', asyncMiddleWare(signUp));
 
