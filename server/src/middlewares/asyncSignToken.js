@@ -2,10 +2,10 @@ const { sign } = require('jsonwebtoken');
 
 const asyncSign = ({
   id, email, name, isadmin,
-}) => new Promise((resolve, reject) => {
+}, secretToken) => new Promise((resolve, reject) => {
   sign({
     id, name, email, isadmin,
-  }, process.env.SECRET_TOKEN, (error, token) => {
+  }, secretToken || process.env.SECRET_TOKEN, (error, token) => {
     if (error) {
       reject(error);
     }

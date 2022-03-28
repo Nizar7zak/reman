@@ -7,7 +7,7 @@ const {
 const login = require('./login');
 const signUp = require('./signup');
 
-router.get('/me', asyncMiddleWare(auth));
+router.get('/checkAuth', asyncMiddleWare(auth));
 router.post('/login', asyncMiddleWare(login));
 router.post('/signup', asyncMiddleWare(signUp));
 
