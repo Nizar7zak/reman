@@ -1,3 +1,4 @@
+const { PASSWORD } = process.env;
 const userCases = {
   successUser: { name: 'nizar', email: 'nizar123@gmail.com', password: '12341234123' },
   invaildUserName: {
@@ -18,6 +19,7 @@ const loginUserCases = {
   successUser: { email: 'nizar123@gmail.com', password: '12341234123' },
   invalidEmail: { email: 'invalidEmail', password: '123123123' },
   invalidPassword: { email: 'nizar123@gmail.com', password: '123' },
+  oldUser: { email: 'nizar@gmail.com', password: PASSWORD },
 };
 
 module.exports = { userCases, loginUserCases };

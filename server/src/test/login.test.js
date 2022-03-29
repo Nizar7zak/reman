@@ -1,4 +1,7 @@
 /* eslint-disable no-undef */
+const request = require('supertest');
+const app = require('../app');
+
 const connection = require('../database/config/connection');
 
 const buildDataBase = require('../database/config/build');
@@ -47,6 +50,20 @@ describe('check database based on login process', () => {
   it('should return 1 as a number of users when check number of user in current database', async () => {
     result = await getAllUser();
     expect(result.rowCount).toBe(1);
+  });
+});
+
+describe('check route "api/v1/login" ', () => {
+  it('should return 201 when we have a successfully user', (done) => {
+    request(app)
+      .post('/api/v1/login')
+      .send(loginUserCases.oldUser)
+      .expect(201)
+      .expect('Content-Type', /json/)
+      .end((err) => {
+        if (err) return done(err);
+        return done();
+      });
   });
 });
 

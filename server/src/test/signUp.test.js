@@ -1,4 +1,7 @@
 /* eslint-disable no-undef */
+const request = require('supertest');
+const app = require('../app');
+
 const connection = require('../database/config/connection');
 
 const buildDataBase = require('../database/config/build');
@@ -69,6 +72,20 @@ describe('check database based on SignUp process', () => {
     await insertNewUser(userCases.successUser);
     result = await getAllUser();
     expect(result.rowCount).toBe(2);
+  });
+});
+
+describe('check route "api/v1/signup" ', () => {
+  it('should return 201 when we have a successfully user', (done) => {
+    request(app)
+      .post('/api/v1/signup')
+      .send(userCases.successUser)
+      .expect(201)
+      .expect('Content-Type', /json/)
+      .end((err) => {
+        if (err) return done(err);
+        return done();
+      });
   });
 });
 
