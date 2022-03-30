@@ -4,8 +4,7 @@ const {
   asyncMiddleWare, serverError, auth, admin,
 } = require('../middlewares');
 
-const login = require('./login');
-const signUp = require('./signup');
+const { login, signUp } = require('../controllers');
 
 router.get('/checkauth', asyncMiddleWare(auth), asyncMiddleWare(admin));
 router.post('/login', asyncMiddleWare(login));
