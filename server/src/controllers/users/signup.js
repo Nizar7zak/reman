@@ -1,7 +1,7 @@
 const { genSalt, hash } = require('bcrypt');
 
-const { getUserByEmail, insertNewUser } = require('../database/queries/user');
-const { signUpSchema } = require('../utils');
+const { getUserByEmail, insertNewUser } = require('../../database/queries/user');
+const { signUpSchema } = require('../../utils');
 
 const signUp = async (req, res) => {
   const { email, password, name } = req.body;

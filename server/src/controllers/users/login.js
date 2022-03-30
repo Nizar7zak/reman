@@ -1,7 +1,7 @@
 const { compare } = require('bcrypt');
-const { getUserByEmail } = require('../database/queries/user');
-const { asyncSign } = require('../middlewares');
-const { loginSchema } = require('../utils');
+const { getUserByEmail } = require('../../database/queries/user');
+const { asyncSign } = require('../../middlewares');
+const { loginSchema } = require('../../utils');
 
 const login = async (req, res) => {
   await loginSchema.validateAsync(req.body);
