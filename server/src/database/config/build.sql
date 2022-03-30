@@ -45,4 +45,14 @@ VALUES
         true
     );
 
+INSERT INTO
+    users(name, email, password, isAdmin)
+VALUES
+    (
+        'nizar',
+        'nizar1@gmail.com',
+        '$2b$10$cKOhzK0GHtdZHcctMm409OjVpEMut8VwyZ0fzgA9kXe/2/Uc8Yy4W',
+        false
+    );
+
 COMMIT;

@@ -1,4 +1,4 @@
-const { PASSWORD } = process.env;
+const { PASSWORD, NOTADMIN } = process.env;
 const userCases = {
   successUser: { name: 'nizar', email: 'nizar123@gmail.com', password: '12341234123' },
   invaildUserName: {
@@ -20,6 +20,7 @@ const loginUserCases = {
   invalidEmail: { email: 'invalidEmail', password: '123123123' },
   invalidPassword: { email: 'nizar123@gmail.com', password: '123' },
   oldUser: { email: 'nizar@gmail.com', password: PASSWORD },
+  notAdminUser: { email: 'nizar1@gmail.com', password: NOTADMIN },
 };
 
 module.exports = { userCases, loginUserCases };

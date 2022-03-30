@@ -49,7 +49,7 @@ describe('check database based on login process', () => {
 
   it('should return 1 as a number of users when check number of user in current database', async () => {
     result = await getAllUser();
-    expect(result.rowCount).toBe(1);
+    expect(result.rowCount).toBe(2);
   });
 });
 
