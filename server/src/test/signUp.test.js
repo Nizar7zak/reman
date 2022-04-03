@@ -68,7 +68,7 @@ describe('check database based on SignUp process', () => {
     result = await getUserByEmail('nizar@gmail.com');
     expect(result.rowCount).toBe(1);
   });
-  it('should return 2 as a number of users when regiester a new user', async () => {
+  it('should return 3 as a number of users when regiester a new user', async () => {
     await insertNewUser(userCases.successUser);
     result = await getAllUser();
     expect(result.rowCount).toBe(3);
