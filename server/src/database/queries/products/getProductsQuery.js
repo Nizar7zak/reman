@@ -1,4 +1,4 @@
-const connection = require("../../config/connection");
+const connection = require('../../config/connection');
 
 const getProductsQuery = ({
   perPage = 9,
@@ -6,11 +6,10 @@ const getProductsQuery = ({
   maxPrice = 1000,
   minPrice = 0,
   rate = -1,
-  name = "",
-  category = "",
-}) =>
-  connection.query(
-    `
+  name = '',
+  category = '',
+}) => connection.query(
+  `
     SELECT p.id,
       p.name,
       p.price,
@@ -25,6 +24,6 @@ const getProductsQuery = ({
       ORDER BY p.id DESC
       LIMIT $1 OFFSET ($2 - 1) * $1
     `,
-    [perPage, page, maxPrice, minPrice, rate, `%${name}%`, `%${category}%`]
-  );
+  [perPage, page, maxPrice, minPrice, rate, `%${name}%`, `%${category}%`],
+);
 module.exports = getProductsQuery;
