@@ -7,6 +7,7 @@ const serverError = (err, req, res, next) => {
   } if (err.message === 'cloudinary Error') {
     return res.status(503).json({ message: 'Cloudinary can not upload photo' });
   }
+
   return res.status(500).json({ message: 'internal server error 500' });
 };
 

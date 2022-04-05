@@ -8,9 +8,7 @@ const addProduct = async (req, res) => {
 
   const { rowCount } = await getProductByName(name);
   if (rowCount) return res.status(400).json({ message: 'Product Already exist, you can edit it.' });
-
   const { url } = await uploadToCloudinary(image, { upload_preset: 'dev_setup' });
-
   const { rows } = await addProductQuery({
     name, price, discount, image: url, category,
   });

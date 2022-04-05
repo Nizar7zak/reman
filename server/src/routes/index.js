@@ -5,13 +5,15 @@ const {
 } = require('../middlewares');
 
 const {
-  login, signUp, getProducts, addProduct,
+  login, signUp, getProducts, addProduct, getProductById,
 } = require('../controllers');
 
 router.get('/checkauth', asyncMiddleWare(auth), asyncMiddleWare(admin));
+
+router.get('/products/:id', asyncMiddleWare(getProductById));
 router.get('/products', asyncMiddleWare(getProducts));
 
-router.post('/products', asyncMiddleWare(addProduct));
+router.post('/products', asyncMiddleWare(auth), asyncMiddleWare(admin), asyncMiddleWare(addProduct));
 
 router.post('/login', asyncMiddleWare(login));
 router.post('/signup', asyncMiddleWare(signUp));
