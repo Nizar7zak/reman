@@ -1,6 +1,8 @@
-const { getProducts, addProduct, getProductById } = require('./products');
+const {
+  getProducts, addProduct, getProductById, addToCart,
+} = require('./products');
 const { login, signUp } = require('./users');
 
 module.exports = {
-  signUp, login, getProducts, addProduct, getProductById,
+  signUp, login, getProducts, addProduct, getProductById, addToCart,
 };

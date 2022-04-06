@@ -31,7 +31,7 @@ CREATE TABLE products(
 CREATE TABLE cart(
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
     product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
-    qunatity INTEGER,
+    quantity INTEGER,
     PRIMARY KEY (user_id, product_id)
 );
 
