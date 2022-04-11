@@ -5,7 +5,7 @@ const {
 } = require('../middlewares');
 
 const {
-  login, signUp, getProducts, addProduct, getProductById, addToCart,
+  login, signUp, getProducts, addProduct, getProductById, addToCart, editProduct,
 } = require('../controllers');
 
 router.get('/checkauth', asyncMiddleWare(auth), asyncMiddleWare(admin));
@@ -13,6 +13,7 @@ router.get('/checkauth', asyncMiddleWare(auth), asyncMiddleWare(admin));
 router.get('/products', asyncMiddleWare(getProducts));
 router.get('/products/:id', asyncMiddleWare(getProductById));
 router.post('/products', asyncMiddleWare(auth), asyncMiddleWare(admin), asyncMiddleWare(addProduct));
+router.patch('/products/edit', asyncMiddleWare(auth), asyncMiddleWare(admin), asyncMiddleWare(editProduct));
 
 router.post('/cart', asyncMiddleWare(auth), asyncMiddleWare(addToCart));
 
