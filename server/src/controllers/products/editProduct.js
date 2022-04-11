@@ -1,4 +1,4 @@
-const { editProductQuery, getProductByName, getProductByIdQuery } = require('../../database/queries/products');
+const { editProductQuery, getProductByIdQuery } = require('../../database/queries/products');
 const { uploadToCloudinary } = require('../../utils');
 
 const editProduct = async (req, res) => {
