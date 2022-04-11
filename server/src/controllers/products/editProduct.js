@@ -1,20 +1,20 @@
-const { editProductQuery, getProductByName } = require('../../database/queries/products');
+const { editProductQuery, getProductByName, getProductByIdQuery } = require('../../database/queries/products');
 const { uploadToCloudinary } = require('../../utils');
 
 const editProduct = async (req, res) => {
   const {
-    name, image, price, category, discount,
+    name, image, price, category, discount, id,
   } = req.body;
 
-  const { rowCount } = await getProductByName(name);
-  if (!rowCount) return res.status(404).json({ message: 'there is no Product with this name' });
+  const currentProduct = await getProductByIdQuery(id);
+  if (!currentProduct.rowCount) return res.status(404).json({ message: 'Product Not Found' });
 
   const { url } = await uploadToCloudinary(image, { upload_preset: 'dev_setup' });
 
   const { rows } = await editProductQuery({
-    image: url, name, price, category, discount,
+    image: url, name, price, category, discount, id,
   });
-  return res.status(202).json({ data: rows[0], message: 'product updated' });
+  return res.status(202).json({ data: rows[0], message: 'Product Updated' });
 };
 
 module.exports = editProduct;
