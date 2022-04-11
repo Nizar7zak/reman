@@ -1,11 +1,12 @@
 const { editProductQuery, getProductByIdQuery } = require('../../database/queries/products');
-const { uploadToCloudinary } = require('../../utils');
+const { uploadToCloudinary, editProductSchema } = require('../../utils');
 
 const editProduct = async (req, res) => {
   const {
     name, image, price, category, discount, id,
   } = req.body;
 
+  await editProductSchema.validateAsync(req.body);
   const currentProduct = await getProductByIdQuery(id);
   if (!currentProduct.rowCount) return res.status(404).json({ message: 'Product Not Found' });
 
