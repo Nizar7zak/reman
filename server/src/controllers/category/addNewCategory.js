@@ -1,7 +1,9 @@
-const { addNewCategoryQuery } = require('../../database/queries/category');
+const { addNewCategoryQuery, getCategoryByNameQuery } = require('../../database/queries/category');
 
 const addNewCategory = async (req, res) => {
   const { name } = req.body;
+  const { rowCount } = await getCategoryByNameQuery(name);
+  if (rowCount) return res.status(404).json({ message: 'category is exist you can edit the name' });
   const { rows } = await addNewCategoryQuery(name);
 
   return res

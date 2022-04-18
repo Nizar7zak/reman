@@ -1,27 +1,61 @@
 const router = require('express').Router();
 
-const {
-  asyncMiddleWare, serverError, auth, admin,
-} = require('../middlewares');
+const { asyncMiddleWare, serverError, auth, admin } = require('../middlewares');
 
 const {
-  login, signUp, getProducts, addProduct, getProductById, editProduct, deleteProductById, addToCart, getCartData, getAllCategories, addNewCategory,
+  login,
+  signUp,
+  getProducts,
+  addProduct,
+  getProductById,
+  editProduct,
+  deleteProductById,
+  addToCart,
+  getCartData,
+  getAllCategories,
+  addNewCategory,
+  deleteCategory,
 } = require('../controllers');
 
 router.get('/checkauth', asyncMiddleWare(auth), asyncMiddleWare(admin));
 
 router.get('/products', asyncMiddleWare(getProducts));
 router.get('/products/:id', asyncMiddleWare(getProductById));
-router.post('/products', asyncMiddleWare(auth), asyncMiddleWare(admin), asyncMiddleWare(addProduct));
-router.patch('/products/edit', asyncMiddleWare(auth), asyncMiddleWare(admin), asyncMiddleWare(editProduct));
-router.delete('/products/:id', asyncMiddleWare(auth), asyncMiddleWare(admin), asyncMiddleWare(deleteProductById));
+router.post(
+  '/products',
+  asyncMiddleWare(auth),
+  asyncMiddleWare(admin),
+  asyncMiddleWare(addProduct)
+);
+router.patch(
+  '/products/edit',
+  asyncMiddleWare(auth),
+  asyncMiddleWare(admin),
+  asyncMiddleWare(editProduct)
+);
+router.delete(
+  '/products/:id',
+  asyncMiddleWare(auth),
+  asyncMiddleWare(admin),
+  asyncMiddleWare(deleteProductById)
+);
 
 router.get('/cart', asyncMiddleWare(auth), asyncMiddleWare(getCartData));
 router.post('/cart', asyncMiddleWare(auth), asyncMiddleWare(addToCart));
 
 router.get('/categories', asyncMiddleWare(getAllCategories));
-router.post('/categories',asyncMiddleWare(auth), asyncMiddleWare(admin), asyncMiddleWare(addNewCategory));
-// router.delete('/categories',asyncMiddleWare(auth), asyncMiddleWare(admin), asyncMiddleWare(deleteCategoryByName));
+router.post(
+  '/categories',
+  asyncMiddleWare(auth),
+  asyncMiddleWare(admin),
+  asyncMiddleWare(addNewCategory)
+);
+router.delete(
+  '/categories',
+  asyncMiddleWare(auth),
+  asyncMiddleWare(admin),
+  asyncMiddleWare(deleteCategory)
+);
 
 router.post('/login', asyncMiddleWare(login));
 router.post('/signup', asyncMiddleWare(signUp));

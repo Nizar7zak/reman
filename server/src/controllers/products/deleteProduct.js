@@ -2,7 +2,7 @@ const { getProductByIdQuery, deleteProductByIdQuery } = require('../../database/
 
 const deleteProductById = async (req, res) => {
   const { id } = req.params;
-console.log(id)
+
   const { rowCount } = await getProductByIdQuery(id);
   if (!rowCount) return res.status(404).json({ message: 'product not found to delete it!' });
   await deleteProductByIdQuery(id);
