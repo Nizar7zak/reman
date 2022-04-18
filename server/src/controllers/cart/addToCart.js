@@ -1,4 +1,5 @@
-const { getProductByIdQuery, addToCartQuery } = require('../../database/queries/products');
+const { addToCartQuery } = require('../../database/queries/cart');
+const { getProductByIdQuery } = require('../../database/queries/products');
 
 const addToCart = async (req, res) => {
   const { productId, quantity } = req.body;

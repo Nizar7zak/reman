@@ -1,5 +1,4 @@
 const addProductQuery = require('./addProductQuery');
-const addToCartQuery = require('./addToCartQuery');
 const deleteProductByIdQuery = require('./deleteProductQuery');
 const editProductQuery = require('./editProductQuery');
 const getProductByIdQuery = require('./getProductByIdQuery');
@@ -11,7 +10,6 @@ module.exports = {
   getProductByName,
   addProductQuery,
   getProductByIdQuery,
-  addToCartQuery,
   editProductQuery,
   deleteProductByIdQuery
 };

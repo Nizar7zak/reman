@@ -1,8 +1,9 @@
+const { addToCart } = require('./cart');
 const {
-  getProducts, addProduct, getProductById, addToCart, editProduct, deleteProductById,
+  getProducts, addProduct, getProductById, editProduct, deleteProductById,
 } = require('./products');
 const { login, signUp } = require('./users');
 
 module.exports = {
-  signUp, login, getProducts, addProduct, getProductById, addToCart, editProduct, deleteProductById
+  signUp, login, getProducts, addProduct, getProductById, editProduct, deleteProductById, addToCart
 };

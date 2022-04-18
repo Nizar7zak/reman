@@ -5,7 +5,7 @@ const {
 } = require('../middlewares');
 
 const {
-  login, signUp, getProducts, addProduct, getProductById, addToCart, editProduct, deleteProductById,
+  login, signUp, getProducts, addProduct, getProductById, editProduct, deleteProductById, addToCart,
 } = require('../controllers');
 
 router.get('/checkauth', asyncMiddleWare(auth), asyncMiddleWare(admin));
