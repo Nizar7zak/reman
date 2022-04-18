@@ -1,3 +1,4 @@
 const addToCart = require('./addToCart');
+const getCartData = require('./getCartData');
 
-module.exports = { addToCart }
+module.exports = { addToCart, getCartData }
