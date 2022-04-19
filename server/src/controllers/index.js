@@ -3,6 +3,7 @@ const {
   getAllCategories,
   addNewCategory,
   deleteCategory,
+  editCategoryName,
 } = require('./category');
 const {
   getProducts,
@@ -26,4 +27,5 @@ module.exports = {
   getAllCategories,
   addNewCategory,
   deleteCategory,
+  editCategoryName,
 };
