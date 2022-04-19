@@ -7,8 +7,8 @@ const editProduct = async (req, res) => {
   } = req.body;
 
   await editProductSchema.validateAsync(req.body);
-  const currentProduct = await getProductByIdQuery(id);
-  if (!currentProduct.rowCount) return res.status(404).json({ message: 'Product Not Found' });
+  const { rowCount } = await getProductByIdQuery(id);
+  if (!rowCount) return res.status(404).json({ message: 'Product Not Found' });
 
   const { url } = await uploadToCloudinary(image, { upload_preset: 'dev_setup' });
 

@@ -27,7 +27,7 @@ router.post(
   asyncMiddleWare(admin),
   asyncMiddleWare(addProduct)
 );
-router.patch(
+router.put(
   '/products/edit',
   asyncMiddleWare(auth),
   asyncMiddleWare(admin),
@@ -56,6 +56,7 @@ router.delete(
   asyncMiddleWare(admin),
   asyncMiddleWare(deleteCategory)
 );
+//edit category name
 
 router.post('/login', asyncMiddleWare(login));
 router.post('/signup', asyncMiddleWare(signUp));
