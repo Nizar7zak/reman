@@ -16,6 +16,7 @@ const {
   addNewCategory,
   deleteCategory,
   editCategoryName,
+  editProductRate,
 } = require('../controllers');
 
 router.get('/checkauth', asyncMiddleWare(auth), asyncMiddleWare(admin));
@@ -34,6 +35,7 @@ router.put(
   asyncMiddleWare(admin),
   asyncMiddleWare(editProduct)
 );
+router.patch('/products/rate', asyncMiddleWare(auth), asyncMiddleWare(editProductRate))
 router.delete(
   '/products/:id',
   asyncMiddleWare(auth),

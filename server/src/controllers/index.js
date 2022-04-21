@@ -1,19 +1,19 @@
-const { addToCart, getCartData } = require('./cart');
+const { addToCart, getCartData } = require("./cart");
 const {
   getAllCategories,
   addNewCategory,
   deleteCategory,
   editCategoryName,
-} = require('./category');
+} = require("./category");
 const {
   getProducts,
   addProduct,
   getProductById,
   editProduct,
   deleteProductById,
-} = require('./products');
-const { login, signUp } = require('./users');
-
+  editProductRate,
+} = require("./products");
+const { login, signUp } = require("./users");
 module.exports = {
   signUp,
   login,
@@ -28,4 +28,5 @@ module.exports = {
   addNewCategory,
   deleteCategory,
   editCategoryName,
+  editProductRate,
 };
