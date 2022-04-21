@@ -8,7 +8,7 @@ const addToCart = async (req, res) => {
   if (!rowCount) return res.status(404).json({ message: 'Product Not Found' });
 
   const { rows } = await addToCartQuery({ userId, productId, quantity });
-  return res.status(201).json({ data: rows[0], message: 'Quantity Product added Successfully' });
+  return res.status(202).json({ data: rows[0], message: 'Product added Successfully to cart' });
 };
 
 module.exports = addToCart;

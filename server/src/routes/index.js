@@ -1,14 +1,12 @@
 const router = require('express').Router();
 
 const productsRouter = require('./productsRouter');
-
+const cartRouter = require('./cartRouter');
 const { asyncMiddleWare, serverError, auth, admin } = require('../middlewares');
 
 const {
   login,
   signUp,
-  addToCart,
-  getCartData,
   getAllCategories,
   addNewCategory,
   deleteCategory,
@@ -17,11 +15,9 @@ const {
 
 router.get('/checkauth', asyncMiddleWare(auth), asyncMiddleWare(admin));
 
-router.use('/products', productsRouter)
+router.use('/products', productsRouter);
+router.use('/cart', cartRouter);
 
-
-router.get('/cart', asyncMiddleWare(auth), asyncMiddleWare(getCartData));
-router.post('/cart', asyncMiddleWare(auth), asyncMiddleWare(addToCart));
 
 router.get('/categories', asyncMiddleWare(getAllCategories));
 router.post(
