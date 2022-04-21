@@ -17,7 +17,7 @@ const editProductRate = async (req, res) => {
   const newRate = Math.floor((+rows[0].rate + +rate) / 2);
   const { rows: updatedRate } = await editProductRateQuery({productId, rate: newRate});
 
-  return res.status(201).json({message: 'rate for this product updated', data: updatedRate[0]})
+  return res.status(202).json({message: 'rate for this product updated', data: updatedRate[0]})
 };
 
 module.exports = editProductRate;
