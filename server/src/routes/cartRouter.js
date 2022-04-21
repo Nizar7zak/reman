@@ -1,12 +1,12 @@
-const router = require("express").Router();
+const router = require('express').Router();
 
-const { getCartData, addToCart } = require("../controllers");
+const { getCartData, addToCart } = require('../controllers');
 
-const { auth, asyncMiddleWare } = require("../middlewares");
+const { auth, asyncMiddleWare } = require('../middlewares');
 
 router.use(asyncMiddleWare(auth));
 router
-  .route("/")
+  .route('/')
   .get(asyncMiddleWare(getCartData))
   .post(asyncMiddleWare(addToCart));
 
