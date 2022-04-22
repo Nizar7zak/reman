@@ -10,7 +10,7 @@ beforeEach(() => buildDataBase());
 describe(' check auth and admin middleware', () => {
   it('should return 401 status code when there is no token', (done) => {
     request(app)
-      .get('/api/v1/checkAuth')
+      .get('/api/v1/cart/getCartData')
       .expect(401)
       .expect('Content-Type', /json/)
       .end((err) => {
